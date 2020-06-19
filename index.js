@@ -2,10 +2,19 @@
 
 function getDogPics() {
   let numOfDogs = $('#quantity').val();
-  fetch("https://dog.ceo/api/breed/hound/images/random/")
+  fetch(`https://dog.ceo/api/breeds/image/random/${numOfDogs}`)
     .then(response => response.json())
-    .then(responseJson => console.log(responseJson));
+    .then(responseJson => displayDogs(responseJson))
+    .catch(error => alert("Something went wrong, please try again"))
+    displayDogs();
 }
+
+function displayDogs() {
+  $(".dogImages").replaceWith(`<img src="${responseJson.message}" class="dogImages">`)
+  $(".results").removeClass("hidden");
+}
+
+
 
 function formListener() {
   $("form").on("submit", function(event){
