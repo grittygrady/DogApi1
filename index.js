@@ -5,11 +5,10 @@ function getDogPics() {
   fetch(`https://dog.ceo/api/breeds/image/random/${numOfDogs}`)
     .then(response => response.json())
     .then(responseJson => displayDogs(responseJson))
-    .catch(error => alert("Something went wrong, please try again"))
-    displayDogs();
+    .catch(error => alert("Something went wrong, please try again"));
 }
 
-function displayDogs() {
+function displayDogs(responseJson) {
   $(".dogImages").replaceWith(`<img src="${responseJson.message}" class="dogImages">`)
   $(".results").removeClass("hidden");
 }
