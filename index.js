@@ -9,15 +9,18 @@ function getDogPics() {
 }
 
 function displayDogs(responseJson) {
-  $(".dogImages").replaceWith(`<img src="${responseJson.message}" class="dogImages">`)
-  $(".results").removeClass("hidden");
+  for (let i = 0; i < responseJson.message.length; i++) {
+    $(".results").append(`<img src="${responseJson.message[i]}" class="dogImages">`)
+  }
+    $(".results").removeClass("hidden");
 }
 
 
 
 function formListener() {
-  $("form").on("submit", function(event){
+  $("form").on("submit", function (event) {
     event.preventDefault();
+    $(".results").empty();
     let numOfDogs = $('#quantity').val();
     console.log(numOfDogs);
     getDogPics();

@@ -2,3 +2,14 @@
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 70vw;
+  margin: auto;
+  text-align: center;
+}
+
+img {
+  margin: auto;
+  width: 600px;
+  max-width: 600px;
+}
